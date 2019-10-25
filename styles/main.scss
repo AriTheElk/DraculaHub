@@ -1,0 +1,847 @@
+/* Globals */
+@import "./colors.scss";
+@import "./mixins.scss";
+@import "./icons.scss";
+
+/* Components */
+@import "./components/dashboard.scss";
+
+/* Global Styles */
+body {
+  @include background;
+}
+
+::selection {
+  background: $pink;
+  color: $fg;
+}
+
+/* Generics */
+.application-main {
+  @include generics;
+
+  .ellipsis-expander {
+    @include background($comment);
+    color: $fg;
+    &:hover {
+      //
+    }
+  }
+
+  // Notifications
+  .notification-center {
+    @include color($fg);
+
+    .notifications-list {
+      .boxed-group {
+        .boxed-group-inner {
+          background: transparent;
+          border: none;
+        }
+
+        h3 {
+          @include background($bg, 10%);
+        }
+
+        .list-group-item {
+          @include background($bg, 5%);
+          @include color($fg);
+          border: none;
+
+          a {
+            @include color($purple);
+          }
+
+          .octicon-git-pull-request {
+            @include color($green);
+          }
+
+          .octicon-issue-closed {
+            @include color($red);
+          }
+
+          .type-icon-state-open {
+            @include color($cyan);
+          }
+
+          .octicon-issue-closed {
+            @include color($red);
+          }
+
+          .age {
+            @include color($comment);
+          }
+
+          &:nth-child(odd) {
+            @include background($bg, 7.5%);
+          }
+        }
+      }
+    }
+  }
+
+  .subscriptions-content {
+    .js-subscription-row {
+      border-top: none;
+
+      @include background($bg, 5%);
+
+      &:nth-child(odd) {
+        @include background($bg, 7.5%);
+      }
+
+      &:last-of-type {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  // Buttons
+  .btn {
+    @include button($comment, $fg);
+  }
+
+  .btn-primary {
+    @include button($green, $bg);
+  }
+
+  .btn-link {
+    color: $orange;
+  }
+
+  .f6.btn-link {
+    color: $pink;
+  }
+
+  .ajax-pagination-btn {
+    @include background($comment);
+    border: none !important;
+    color: $fg !important;
+    &:hover {
+      background: lighten($comment, 10%) !important;
+    }
+  }
+
+  .social-count {
+    @include background($comment);
+    color: $cyan;
+  }
+
+  // Labels
+  .label {
+    &.Label--gray-darker {
+      @include background($comment);
+      font-weight: lighter;
+    }
+  }
+
+  body {
+    color: $fg;
+  }
+
+  .previewable-comment-form {
+    @include background($bg, 10%);
+    border-radius: 3px;
+
+    .comment-form-head {
+      @include background($bg, 20%);
+      border: none;
+
+      .toolbar-commenting {
+        .octicon {
+          @include color($fg);
+        }
+      }
+    }
+
+    .upload-enabled {
+      &.focused {
+        box-shadow: 0 0 4px $purple;
+
+        .form-control {
+          &:focus {
+            border-color: $purple;
+          }
+        }
+      }
+      .comment-form-textarea {
+        @include background($bg);
+        color: $fg;
+        border: none;
+      }
+    }
+  }
+
+  // Explore Page Container
+  .border-bottom.border-gray-light.py-6,
+  .container-xl.p-responsive.py-6 {
+    background: $bg !important;
+
+    .position-absolute.top-0.left-0 {
+      background: linear-gradient(
+        to right,
+        $bg,
+        transparentize($bg, 1)
+      ) !important;
+    }
+    .position-absolute.top-0.right-0 {
+      background: linear-gradient(
+        to left,
+        $bg,
+        transparentize($bg, 1)
+      ) !important;
+    }
+  }
+
+  .Collection {
+    @include scrollbar;
+  }
+
+  // Header
+  .Header,
+  .pagehead {
+    background: #282a36 !important;
+    border-bottom-color: $border;
+
+    .HeaderNavlink {
+      color: $fg;
+    }
+
+    .header-search-wrapper {
+      background: transparentize($comment, 0.8);
+      input {
+        background: transparent !important;
+        color: $fg !important;
+        &::placeholder {
+          color: lighten($comment, 30%);
+        }
+      }
+      &.focus {
+        @include background($comment);
+        color: $fg !important;
+        input {
+          &::placeholder {
+            color: $fg !important;
+          }
+        }
+      }
+    }
+  }
+
+  .user-profile-sticky-bar {
+    color: $fg;
+    &:after {
+      background: $border;
+      border: none;
+    }
+  }
+  .user-profile-nav {
+    background: $border;
+    color: $fg;
+  }
+
+  .blankslate {
+    @include background($bg, 10%);
+    border: none;
+  }
+
+  .filter-item {
+    color: $comment;
+    &:hover {
+      background: $pink;
+      color: $fg !important;
+    }
+
+    &.selected {
+      background: $pink;
+    }
+  }
+
+  .dropdown-menu {
+    @include background($bg, 20%);
+    color: $fg;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+
+    &::before,
+    &::after {
+      border-bottom-color: $border;
+    }
+
+    &.dropdown-menu-ne {
+      &::before,
+      &::after {
+        border-top-color: lighten($bg, 20%);
+      }
+    }
+    &.dropdown-menu-sw {
+      &::before,
+      &::after {
+        border-bottom-color: lighten($bg, 20%);
+      }
+    }
+
+    .user-profile-link {
+      color: $fg;
+    }
+
+    .dropdown-item {
+      color: $fg;
+      &:hover {
+        background: $pink;
+      }
+    }
+
+    .dropdown-divider {
+      background: $bg;
+    }
+  }
+
+  .select-menu-modal {
+    background: transparent;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.35);
+
+    .select-menu-header {
+      background: $border;
+      border-color: $bg;
+
+      .select-menu-title {
+        color: $fg;
+      }
+    }
+
+    .select-menu-list {
+      .select-menu-item {
+        background: $border;
+        border-color: $bg;
+        color: $fg;
+
+        .description {
+          color: lighten($comment, 5%);
+        }
+        &:hover {
+          background: $pink;
+          .description {
+            color: $fg;
+          }
+        }
+      }
+    }
+  }
+
+  // Issues
+  .issues-listing {
+    .subnav {
+    }
+    .table-list-header {
+    }
+    .border-right.border-bottom.border-left {
+      border: none !important;
+    }
+    .js-navigation-container {
+      .Box-row {
+        @include background($bg, 10%);
+        border: none;
+
+        &:nth-child(even) {
+          @include background($bg, 5%);
+        }
+
+        a.link-gray-dark {
+          @include color($purple);
+        }
+
+        .opened-by {
+          a.muted-link {
+            @include color($green);
+          }
+        }
+
+        .octicon {
+          &.octicon-issue-opened {
+            color: $green;
+          }
+          &.octicon-issue-closed {
+            color: $red;
+          }
+        }
+
+        a.muted-link {
+          @include color($orange);
+        }
+
+        &:first-of-type {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+  }
+
+  .pinned-repos-list {
+    .pinned-repo-item {
+      @include background($bg, 5%);
+      @include color($fg, 20%);
+      transition: all 0.15s linear;
+
+      a {
+        @include color($cyan);
+
+        .octicon {
+          fill: $purple;
+        }
+      }
+
+      &:hover {
+        @include background($bg, 8%);
+        box-shadow: 0 14px 25px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // Oganization Page
+  .orghead {
+    @include background($bg, 5%);
+    @include color($comment, 20%);
+    border-color: lighten($bg, 10%);
+
+    .org-name {
+      @include color($orange);
+    }
+
+    a {
+      @include color($cyan);
+    }
+
+    .orgnav {
+      a.pagehead-tabs-item {
+        @include color($fg);
+
+        &.selected {
+          @include background($bg, 10%);
+          @include color($fg);
+          border-top-color: $purple;
+          border-right: none;
+          border-left: none;
+        }
+      }
+    }
+  }
+
+  .merge-pr {
+    // PR Status
+    .branch-action-body {
+      background: transparent;
+      @include color($fg);
+      border-color: $border;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      .branch-action-item {
+        border: none;
+
+        .status-meta {
+          color: $comment;
+        }
+        .branch-action-item-icon {
+          &.completeness-indicator-error {
+            background: $red;
+          }
+          svg {
+            fill: $fg !important;
+
+            &.donut-chart {
+              .success {
+                fill: $green;
+              }
+              .failure {
+                fill: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // CI Status
+    .merge-status-list,
+    .branch-action-item {
+      border: none;
+
+      &:nth-child(even) {
+        @include background($bg, 10%);
+      }
+    }
+    .merge-status-item {
+      background: $border;
+      border-color: $border;
+
+      strong {
+        color: $fg;
+      }
+
+      .merge-status-icon {
+        svg.text-red {
+          fill: $red !important;
+        }
+        svg.text-green {
+          fill: $green !important;
+        }
+      }
+    }
+  }
+
+  // Tabs
+  span .reponav-item,
+  .container > .reponav-item {
+    color: $comment;
+    &:hover {
+      color: $purple;
+    }
+
+    .Counter {
+      color: $purple;
+      background: $bg;
+    }
+  }
+
+  .tabnav {
+    border-color: $border;
+
+    .tabnav-tab {
+      @include color($fg);
+    }
+  }
+
+  .reponav-item.selected,
+  .tabnav-tab.selected {
+    background: $border;
+    border-color: $border;
+    border-top-color: $active;
+    color: $text;
+  }
+
+  .topic-tag-link {
+    background: $purple;
+    color: $bg;
+  }
+
+  // Details
+  .overall-summary,
+  .js-toggle-lang-stats {
+    a,
+    .text-emphasized {
+      svg {
+        fill: $fg;
+      }
+      color: $fg;
+      &:hover {
+        color: $active;
+      }
+    }
+    border-color: $border;
+    background-color: $border;
+  }
+
+  // File Navigator
+  .navigation-focus .content {
+    color: red !important;
+  }
+
+  .text-red {
+    color: $red !important;
+  }
+
+  .file-wrap,
+  table.files,
+  tr {
+    @include background($bg, 10%);
+    @include border;
+
+    .navigation-focus td {
+      @include background($comment);
+      a {
+        color: $fg !important;
+      }
+      time-ago {
+        color: $fg;
+      }
+    }
+    td {
+      border: none;
+      font-family: monospace;
+      font-size: 12px;
+      &.content a {
+        color: $fg !important;
+      }
+      time-ago {
+        color: lighten($comment, 5%);
+      }
+    }
+    a {
+      color: $purple !important;
+    }
+    svg {
+      fill: $yellow !important;
+
+      &.octicon-file-directory {
+        fill: cyan !important;
+      }
+    }
+  }
+
+  .pull-discussion-timeline {
+    .commit-icon .octicon {
+      background: transparent;
+    }
+  }
+
+  // PR Timeline
+  .discussion-timeline-actions {
+    background: transparent;
+    border: none;
+
+    .pull-merging {
+      background: $border;
+      border-radius: 3px;
+      overflow: hidden;
+
+      .merge-pr-more-commits {
+        color: $comment;
+      }
+
+      .branch-action-icon {
+        margin-left: -45px;
+      }
+    }
+  }
+
+  .timeline-comment-group:target .timeline-comment {
+    box-shadow: 0 0 0 0.2em $purple;
+  }
+
+  .timeline-comment-wrapper {
+    border: none;
+
+    .timeline-comment {
+      background: transparent;
+
+      border: none;
+      &::before,
+      &::after {
+        border-right-color: $border !important;
+      }
+
+      .timeline-comment-header {
+        @include background($bg, 10%);
+        @include color($comment, 15%);
+        border: none;
+      }
+
+      .comment-reactions {
+        @include background($bg, 5%);
+        border: none;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        .reaction-summary-item {
+          border-color: lighten($bg, 10%);
+
+          &.user-has-reacted {
+            @include background($purple);
+            @include color($bg);
+          }
+        }
+      }
+
+      .d-block {
+        border: none;
+      }
+      tr.d-block {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border: none;
+      }
+
+      pre,
+      code {
+        @include background($bg);
+        @include syntax;
+      }
+    }
+  }
+
+  .commit-tease,
+  .commit-tease-contributors {
+    background: $border;
+    border-color: $border;
+    color: $fg;
+
+    a {
+      color: $cyan;
+    }
+  }
+
+  // Profile Graph
+  .js-yearly-contributions {
+    .js-calendar-graph {
+      filter: hue-rotate(100deg);
+
+      svg {
+        text {
+          fill: $cyan;
+        }
+
+        rect {
+          opacity: 0.8;
+        }
+        rect[data-count="0"] {
+          fill: rgba(60, 60, 60, 1);
+        }
+      }
+    }
+
+    .legend {
+      filter: hue-rotate(100deg) !important;
+      li:first-child {
+        background-color: rgba(60, 60, 60, 1) !important;
+      }
+    }
+  }
+
+  #year-list-container {
+    .js-year-link {
+      color: $purple;
+      font-family: monospace;
+      &.selected {
+        background-color: $purple !important;
+        color: $fg;
+        font-weight: bolder;
+      }
+    }
+  }
+
+  // Script Syntax
+
+  .blob-wrapper {
+    .blob-num {
+      @include background($bg);
+      border-right: 1px solid $border !important;
+    }
+    @include syntax;
+    @include scrollbar;
+  }
+
+  .markdown-body {
+    color: $fg;
+  }
+
+  .discussion-timeline {
+    &::before {
+      background: $border;
+    }
+
+    .discussion-item {
+      .discussion-item-header {
+        @include color($comment);
+        a {
+          color: $cyan;
+        }
+      }
+
+      .discussion-item-icon {
+        background: $border;
+        border-color: $green;
+
+        svg {
+          fill: $green;
+        }
+      }
+
+      .discussion-item-ref-title {
+        a {
+          @include color($purple);
+        }
+      }
+    }
+
+    .commit {
+      background: transparent !important;
+
+      .signed-commit-badge {
+        color: $bg;
+        background: $green;
+        border: none;
+      }
+    }
+  }
+
+  // Preview Panel
+  .Box,
+  .file {
+    @include background($bg, 5%);
+    border-color: $border;
+    color: $fg !important;
+
+    .Box-header,
+    .file-header {
+      @include background($bg, 5%);
+      border-color: $border;
+      color: lighten($border, 35%);
+
+      svg {
+        fill: lighten($border, 35%);
+      }
+
+      .file-info-divider {
+        background: $bg;
+      }
+    }
+
+    .Box-body {
+      border: none;
+    }
+
+    // Markdown Styles
+    .markdown-body {
+      background: $border;
+      img {
+        background: transparent;
+      }
+      hr {
+        background: $bg;
+      }
+      h1,
+      h2,
+      h3 {
+        border-bottom-color: $bg;
+      }
+
+      // Syntax Highlighting
+      pre,
+      code {
+        background: $bg;
+        @include syntax;
+      }
+    }
+  }
+}
+
+#wiki-wrapper {
+  padding: 25px;
+  @include background($bg, 5%);
+
+  .markdown-body .highlight pre,
+  .markdown-body pre {
+    background: $bg;
+    @include syntax;
+  }
+}
+
+.footer {
+  @include generics;
+  border: none !important;
+}

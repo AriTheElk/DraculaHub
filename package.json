@@ -1,0 +1,18 @@
+{
+  "name": "dracula-hub",
+  "version": "1.0.0",
+  "description": "Dracula theme for GitHub.com",
+  "main": "index.js",
+  "repository": "git@github.com:garetmckinley/DraculaHub.git",
+  "author": "Garet McKinley <self@garet.io>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node-sass styles/main.scss ext/src/inject/inject.css",
+    "watch": "npm run build -- --watch",
+    "package": "crx pack ext -o DraculaHub.crx"
+  },
+  "dependencies": {
+    "crx": "^3.2.1",
+    "node-sass": "^4.9.3"
+  }
+}

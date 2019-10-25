@@ -1,0 +1,102 @@
+@import "../colors.scss";
+@import "../mixins.scss";
+
+.application-main .flex-wrap {
+  .team-left-column {
+    @include background($bg, 5%);
+    @include color($fg);
+
+    &:last-child {
+      margin-top: 0 !important;
+      padding: 24px !important;
+
+      .github-jobs-logo strong {
+        filter: invert(100%);
+      }
+    }
+  }
+
+  .link-gray {
+    @include color($green);
+    @include hoverColor($cyan);
+  }
+
+  .link-gray-dark {
+    @include color($purple);
+    @include hoverColor($cyan);
+  }
+
+  .muted-link {
+    @include color($comment, 10%);
+    @include hoverColor($cyan);
+  }
+
+  .octicon {
+    &.text-green {
+      fill: $green;
+    }
+
+    &.octicon-repo {
+      fill: $purple;
+    }
+
+    &.repo-private-icon {
+      fill: $orange;
+    }
+
+    &.octicon-jersey {
+      fill: $yellow;
+    }
+  }
+
+  .Box-row {
+    border-color: lighten($border, 5%) !important;
+  }
+
+  .Box-row--hover-blue {
+    @include hoverBg(transparent);
+    @include hoverColor($cyan);
+  }
+
+  .AvatarStack {
+    .AvatarStack-body {
+      background: transparent !important;
+
+      img {
+        border: none !important;
+        border-radius: 4px !important;
+      }
+    }
+  }
+
+  .input-block {
+    @include background($bg);
+    @include border;
+    color: $foreground !important;
+    &::placeholder {
+      color: $foreground !important;
+    }
+  }
+
+  // FEED
+  .news {
+    h4 {
+      display: none;
+    }
+
+    .Details {
+      border: none !important;
+    }
+
+    a.branch-name {
+      @include background($bg);
+      @include color($cyan);
+    }
+
+    .commits {
+      blockquote {
+        color: $comment !important;
+      }
+    }
+  }
+}
