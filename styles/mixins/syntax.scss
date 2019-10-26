@@ -1,0 +1,55 @@
+@mixin syntax {
+  .blob-code-inner {
+    background: $background;
+  }
+  .blob-num {
+    @include color($comment);
+  }
+  .blob-code-inner {
+    @include color($foreground);
+  }
+  .pl-smi {
+    @include color($foreground);
+  }
+  .pl-c {
+    @include color($comment);
+    .pl-en .pl-smi {
+      @include color($red);
+    }
+  }
+  .pl-k {
+    @include color($red);
+  }
+  .pl-c1 {
+    @include color($cyan);
+  }
+  .pl-s,
+  .pl-pds {
+    @include color($green);
+  }
+  .pl-en {
+    @include color($purple);
+  }
+  .pl-s1 {
+    @include color($pink);
+  }
+  .pl-ent {
+    @include color($orange);
+  }
+  .pl-sr {
+    @include color($yellow);
+  }
+  .pl-mi1 {
+    background: $green;
+    @include color($background);
+  }
+  .pl-md {
+    background: $red;
+    @include color($background);
+  }
+  del {
+    opacity: 0.4;
+    background: $red;
+    @include color($background);
+  }
+}

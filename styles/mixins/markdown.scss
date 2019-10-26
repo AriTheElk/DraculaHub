@@ -1,0 +1,30 @@
+@import "../colors.scss";
+@import "./syntax.scss";
+
+@mixin markdown {
+  @include background($bg, 5%);
+  color: $fg !important;
+
+  img {
+    background: transparent;
+
+    &#user-content-dracula-invert {
+      filter: invert(1);
+    }
+  }
+  hr {
+    background: $bg;
+  }
+  h1,
+  h2,
+  h3 {
+    border-bottom-color: $bg;
+  }
+
+  // Syntax Highlighting
+  pre,
+  code {
+    background: $bg;
+    @include syntax;
+  }
+}

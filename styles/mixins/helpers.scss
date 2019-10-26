@@ -1,0 +1,57 @@
+@import "../colors.scss";
+
+@mixin background($background: $background, $shade: 0) {
+  background: lighten($background, $shade) !important;
+}
+
+@mixin border($shade: 0) {
+  border-color: lighten($border, $shade) !important;
+}
+
+@mixin color($color, $shade: 0) {
+  color: lighten($color, $shade) !important;
+}
+
+@mixin hoverColor($color, $shade: 0) {
+  &:hover {
+    @include color($color, $shade);
+  }
+}
+
+@mixin hoverBg($color, $shade: 0) {
+  &:hover {
+    @include background($color, $shade);
+  }
+}
+
+@mixin button($bg, $fg) {
+  background: $bg !important;
+  color: $fg !important;
+  border-color: darken($bg, 5%) !important;
+  svg {
+    fill: $fg !important;
+  }
+  &:hover {
+    background: lighten($bg, 5%) !important;
+    border-color: darken($bg, 5%);
+  }
+  &:active,
+  &.selected {
+    background: darken($bg, 5%) !important;
+  }
+}
+
+@mixin scrollbar {
+  &::-webkit-scrollbar-track {
+    background-color: $border;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    background-color: $purple;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $purple !important;
+  }
+}

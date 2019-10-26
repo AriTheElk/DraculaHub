@@ -1,0 +1,35 @@
+@import "../colors.scss";
+@import "../mixins/all.scss";
+
+// PROFILE
+
+// * {
+//   border-color: $border !important;
+// }
+
+body.page-profile {
+  .UnderlineNav {
+    border-bottom-color: $border;
+
+    .UnderlineNav-item {
+      color: $fg;
+
+      &.selected {
+        color: $fg;
+        border-bottom-color: $purple;
+      }
+    }
+  }
+  .js-pinned-items-selection-form {
+    .Box-footer {
+      border-top-color: $border;
+    }
+    .pinned-item-checkbox:checked + .pinned-item-name {
+      color: $fg;
+      background-color: $purple;
+    }
+    .pinned-item-name {
+      color: $fg;
+    }
+  }
+}

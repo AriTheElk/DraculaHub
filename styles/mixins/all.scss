@@ -1,0 +1,56 @@
+@import "../colors";
+@import "./markdown.scss";
+@import "./helpers.scss";
+
+@mixin generics {
+  a {
+    color: $link;
+  }
+
+  .border-gray-light {
+    @include border;
+  }
+
+  .border-gray-dark {
+    border-color: lighten($bg, 5%) !important;
+  }
+
+  .text-gray {
+    color: lighten($comment, 5%) !important;
+
+    .octicon {
+      fill: lighten($comment, 5%);
+    }
+  }
+
+  .text-gray-dark {
+    @include color($comment, 15%);
+  }
+
+  .bg-gray {
+    background: $background !important;
+  }
+  .bg-gray-light {
+    background: lighten($background, 4%) !important;
+  }
+
+  .bg-white {
+    background: $border !important;
+    @include border;
+    color: $foreground !important;
+  }
+
+  .border-blue {
+    border-color: $purple !important;
+  }
+
+  .border-bottom,
+  .border-top {
+    border-color: lighten($border, 5%) !important;
+  }
+
+  .border-green {
+    border-color: $green !important;
+    color: $green !important;
+  }
+}

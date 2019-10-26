@@ -1,0 +1,153 @@
+@import "../colors.scss";
+@import "../mixins/all.scss";
+
+.discussion-timeline,
+.new-discussion-timeline {
+  &::before {
+    background: $border;
+  }
+
+  // Highlight permalinked comment
+  :target .timeline-comment {
+    border: none;
+    box-shadow: 0 0 0 0.2em $purple;
+  }
+
+  .gh-header {
+    @include background(transparent);
+    @include color($fg);
+  }
+
+  // Single comment
+  .discussion-item,
+  .timeline-comment-group {
+    .timeline-comment-header {
+      @include background($bg, 10%);
+      @include color($comment, 15%);
+      border: none;
+    }
+
+    .discussion-item-header {
+      @include color($comment);
+      a {
+        color: $cyan;
+      }
+    }
+
+    .discussion-item-icon {
+      background: $border;
+      border-color: $green;
+
+      svg {
+        fill: $green;
+      }
+    }
+
+    .discussion-item-ref-title {
+      a {
+        @include color($purple);
+      }
+    }
+
+    // Comment Body
+    .markdown-body {
+      font-family: inherit;
+      font-size: inherit;
+      @include markdown;
+    }
+
+    .comment-reactions {
+      @include background($bg, 5%);
+      border: none;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+
+      .reaction-summary-item {
+        border-color: lighten($bg, 10%);
+
+        &.user-has-reacted {
+          @include background($purple);
+          @include color($bg);
+        }
+      }
+    }
+  }
+
+  .commit {
+    background: transparent !important;
+
+    .signed-commit-badge {
+      color: $bg;
+      background: $green;
+      border: none;
+    }
+  }
+}
+
+.application-main {
+  .pull-discussion-timeline {
+    .commit-icon .octicon {
+      background: transparent;
+    }
+  }
+
+  // PR Timeline
+  .discussion-timeline-actions {
+    background: transparent;
+    border: none;
+
+    .pull-merging {
+      background: $border;
+      border-radius: 3px;
+      overflow: hidden;
+
+      .merge-pr-more-commits {
+        color: $comment;
+      }
+
+      .branch-action-icon {
+        margin-left: -45px;
+      }
+    }
+  }
+
+  .timeline-comment-wrapper {
+    border: none;
+
+    .timeline-comment {
+      background: transparent;
+
+      border: none;
+      &::before,
+      &::after {
+        border-right-color: $border !important;
+      }
+
+      .d-block {
+        border: none;
+      }
+      tr.d-block {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border: none;
+      }
+
+      pre,
+      code {
+        @include background($bg);
+        @include syntax;
+      }
+    }
+  }
+
+  .commit-tease,
+  .commit-tease-contributors {
+    background: $border;
+    border-color: $border;
+    color: $fg;
+
+    a {
+      color: $cyan;
+    }
+  }
+}

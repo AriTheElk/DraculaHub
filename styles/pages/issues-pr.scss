@@ -1,0 +1,51 @@
+@import "../colors.scss";
+@import "../mixins/all.scss";
+
+// Issues
+.js-check-all-container {
+  .subnav {
+  }
+  .table-list-header {
+  }
+  .border-right.border-bottom.border-left {
+    border: none !important;
+  }
+  .js-navigation-container {
+    .Box-row {
+      @include background($bg, 10%);
+      border: none;
+
+      &:nth-child(even) {
+        @include background($bg, 5%);
+      }
+
+      a.link-gray-dark {
+        @include color($purple);
+      }
+
+      .opened-by {
+        a.muted-link {
+          @include color($green);
+        }
+      }
+
+      .octicon {
+        &.octicon-issue-opened {
+          color: $green;
+        }
+        &.octicon-issue-closed {
+          color: $red;
+        }
+      }
+
+      a.muted-link {
+        @include color($orange);
+      }
+
+      &:first-of-type {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
