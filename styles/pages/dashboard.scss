@@ -1,7 +1,7 @@
 @import "../colors.scss";
 @import "../mixins/all.scss";
 
-.application-main .flex-wrap {
+body.DraculaHub .application-main .flex-wrap {
   .team-left-column {
     @include background($bg, 5%);
     @include color($fg);

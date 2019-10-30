@@ -1,4 +1,8 @@
-.header-logo-invertocat .octicon-mark-github,
-.footer-octicon {
-  color: $active;
+@import "colors.scss";
+
+body.DraculaHub {
+  .header-logo-invertocat .octicon-mark-github,
+  .footer-octicon {
+    color: $active;
+  }
 }

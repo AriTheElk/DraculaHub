@@ -1,157 +1,159 @@
 @import "../colors.scss";
 @import "../mixins/all.scss";
 
-.discussion-timeline,
-.new-discussion-timeline {
-  &::before {
-    background: $border;
-  }
+body.DraculaHub {
+  .discussion-timeline,
+  .new-discussion-timeline {
+    &::before {
+      background: $border;
+    }
 
-  // Highlight permalinked comment
-  :target .timeline-comment {
-    border: none;
-    box-shadow: 0 0 0 0.2em $purple;
-  }
-
-  .gh-header {
-    @include background(transparent);
-    @include color($fg);
-  }
-
-  .gh-header-meta {
-    border-color: $border;
-  }
-
-  // Single comment
-  .discussion-item,
-  .timeline-comment-group,
-  .timeline-comment-wrapper {
-    .timeline-comment {
-      background: transparent;
-
+    // Highlight permalinked comment
+    :target .timeline-comment {
       border: none;
-      &::before,
-      &::after {
-        border-right-color: $border !important;
-      }
+      box-shadow: 0 0 0 0.2em $purple;
+    }
 
-      .timeline-comment-header {
-        @include background($bg, 10%);
-        @include color($comment, 15%);
-        border: none;
-      }
+    .gh-header {
+      @include background(transparent);
+      @include color($fg);
+    }
 
-      .d-block {
-        border: none;
-      }
-      tr.d-block {
-        border-bottom-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-        border: none;
-      }
+    .gh-header-meta {
+      border-color: $border;
+    }
 
-      // TODO: Repair this dead code
-      .discussion-item-header {
-        @include color($comment);
-        a {
-          color: $cyan;
+    // Single comment
+    .discussion-item,
+    .timeline-comment-group,
+    .timeline-comment-wrapper {
+      .timeline-comment {
+        background: transparent;
+
+        border: none;
+        &::before,
+        &::after {
+          border-right-color: $border !important;
         }
-      }
 
-      .discussion-item-icon {
-        background: $border;
-        border-color: $green;
-
-        svg {
-          fill: $green;
+        .timeline-comment-header {
+          @include background($bg, 10%);
+          @include color($comment, 15%);
+          border: none;
         }
-      }
 
-      .discussion-item-ref-title {
-        a {
-          @include color($purple);
+        .d-block {
+          border: none;
         }
-      }
-      // END DEAD CODE -------------
+        tr.d-block {
+          border-bottom-right-radius: 3px;
+          border-bottom-left-radius: 3px;
+          border: none;
+        }
 
-      // Comment Body
-      .markdown-body {
-        font-family: inherit;
-        font-size: inherit;
-        @include markdown;
-      }
+        // TODO: Repair this dead code
+        .discussion-item-header {
+          @include color($comment);
+          a {
+            color: $cyan;
+          }
+        }
 
-      .comment-reactions {
-        @include background($bg, 5%);
-        box-shadow: inset 0 20px 15px rgba(0, 0, 0, 0.15);
-        border: none;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
+        .discussion-item-icon {
+          background: $border;
+          border-color: $green;
 
-        .reaction-summary-item {
-          @include color($purple);
-          border-color: $bg;
+          svg {
+            fill: $green;
+          }
+        }
 
-          &.user-has-reacted {
-            @include background($purple);
-            @include color($bg);
+        .discussion-item-ref-title {
+          a {
+            @include color($purple);
+          }
+        }
+        // END DEAD CODE -------------
+
+        // Comment Body
+        .markdown-body {
+          font-family: inherit;
+          font-size: inherit;
+          @include markdown;
+        }
+
+        .comment-reactions {
+          @include background($bg, 5%);
+          box-shadow: inset 0 20px 15px rgba(0, 0, 0, 0.15);
+          border: none;
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+
+          .reaction-summary-item {
+            @include color($purple);
+            border-color: $bg;
+
+            &.user-has-reacted {
+              @include background($purple);
+              @include color($bg);
+            }
           }
         }
       }
     }
+
+    .commit {
+      background: transparent !important;
+
+      .signed-commit-badge {
+        color: $bg;
+        background: $green;
+        border: none;
+      }
+    }
   }
 
-  .commit {
-    background: transparent !important;
+  // This is the junk that's shown at the bottom of a PR timeline
+  .application-main {
+    .pull-discussion-timeline {
+      .commit-icon .octicon {
+        background: transparent;
+      }
+    }
 
-    .signed-commit-badge {
-      color: $bg;
-      background: $green;
+    // PR Timeline
+    .discussion-timeline-actions {
+      background: transparent;
+      border: none;
+
+      .pull-merging {
+        background: $border;
+        border-radius: 3px;
+        overflow: hidden;
+
+        .merge-pr-more-commits {
+          color: $comment;
+        }
+
+        .branch-action-icon {
+          margin-left: -45px;
+        }
+      }
+    }
+
+    .timeline-comment-wrapper {
       border: none;
     }
-  }
-}
 
-// This is the junk that's shown at the bottom of a PR timeline
-.application-main {
-  .pull-discussion-timeline {
-    .commit-icon .octicon {
-      background: transparent;
-    }
-  }
-
-  // PR Timeline
-  .discussion-timeline-actions {
-    background: transparent;
-    border: none;
-
-    .pull-merging {
+    .commit-tease,
+    .commit-tease-contributors {
       background: $border;
-      border-radius: 3px;
-      overflow: hidden;
+      border-color: $border;
+      color: $fg;
 
-      .merge-pr-more-commits {
-        color: $comment;
+      a {
+        color: $cyan;
       }
-
-      .branch-action-icon {
-        margin-left: -45px;
-      }
-    }
-  }
-
-  .timeline-comment-wrapper {
-    border: none;
-  }
-
-  .commit-tease,
-  .commit-tease-contributors {
-    background: $border;
-    border-color: $border;
-    color: $fg;
-
-    a {
-      color: $cyan;
     }
   }
 }

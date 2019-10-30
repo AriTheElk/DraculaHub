@@ -1,24 +1,26 @@
 @import "../colors.scss";
 @import "../mixins/all.scss";
 
-.repository-content {
-  .border {
-    @include border();
-  }
+body.DraculaHub {
+  .repository-content {
+    .border {
+      @include border();
+    }
 
-  .btn-link {
-    @include color($fg);
-  }
+    .btn-link {
+      @include color($fg);
+    }
 
-  .link-gray-dark {
-    @include color($purple);
-  }
+    .link-gray-dark {
+      @include color($purple);
+    }
 
-  .progress-bar {
-    @include background($border);
-  }
+    .progress-bar {
+      @include background($border);
+    }
 
-  #projects-results {
-    @include color($bg, 40%);
+    #projects-results {
+      @include color($bg, 40%);
+    }
   }
 }

@@ -572,6 +572,10 @@ body.DraculaHub {
       background-color: $border;
     }
 
+    .repository-lang-stats-graph {
+      @include border();
+    }
+
     // File Navigator
     .navigation-focus .content {
       color: red !important;

@@ -4,10 +4,10 @@ const enable = () =>
     " " +
     "DraculaHub");
 const disable = () =>
-  (document.body.className = document.body.className.replace(
-    "DraculaHub",
-    "DraculaHubDisabled"
-  ));
+  (document.body.className =
+    document.body.className.replace("DraculaHub", "") +
+    " " +
+    "DraculaHubDisabled");
 
 chrome.storage.local.get(["enabled"], function(result) {
   if (result.enabled) {
