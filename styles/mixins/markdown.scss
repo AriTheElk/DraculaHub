@@ -11,6 +11,30 @@
     &#user-content-dracula-invert {
       filter: invert(1);
     }
+
+    &#user-content-dracula-brighten-25 {
+      filter: brightness(1.25);
+    }
+
+    &#user-content-dracula-brighten-50 {
+      filter: brightness(1.5);
+    }
+
+    &#user-content-dracula-brighten-75 {
+      filter: brightness(1.75);
+    }
+
+    &#user-content-dracula-darken-25 {
+      filter: brightness(0.75);
+    }
+
+    &#user-content-dracula-darken-50 {
+      filter: brightness(0.5);
+    }
+
+    &#user-content-dracula-darken-75 {
+      filter: brightness(0.25);
+    }
   }
   hr {
     background: $bg;
