@@ -35,6 +35,22 @@
     &#user-content-dracula-darken-75 {
       filter: brightness(0.25);
     }
+
+    &#user-content-dracula-opacity-0 {
+      filter: opacity(0);
+    }
+
+    &#user-content-dracula-opacity-25 {
+      filter: opacity(0.25);
+    }
+
+    &#user-content-dracula-opacity-50 {
+      filter: opacity(0.5);
+    }
+
+    &#user-content-dracula-opacity-75 {
+      filter: opacity(0.75);
+    }
   }
   hr {
     background: $bg;
