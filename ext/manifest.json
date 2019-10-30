@@ -1,0 +1,31 @@
+{
+  "name": "DraculaHub",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Dracula theme for GitHub.com",
+  "homepage_url": "https://github.com/garetmckinley/DraculaHub",
+  "icons": {
+    "16": "icons/icon-active.16.png",
+    "48": "icons/icon-active.48.png",
+    "128": "icons/icon-active.128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon-active.16.png",
+      "32": "icons/icon-active.32.png"
+    },
+    "default_title": "DraculaHub"
+  },
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "persistent": false,
+    "scripts": ["js/toggleStyles.js", "js/hot-reload.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "css": ["src/inject/inject.css"],
+      "js": ["src/inject/toggle.js"]
+    }
+  ]
+}
