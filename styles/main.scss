@@ -6,6 +6,7 @@
 /* Global Styles */
 body {
   @include background;
+  @include color($fg);
 }
 
 ::selection {
@@ -60,6 +61,36 @@ body {
 }
 
 @import "./pages/issues-pr.scss";
+
+.menu {
+  @include background($bg, 5);
+  @include border();
+
+  .menu-heading {
+    @include background($border);
+    @include border();
+    @include color($fg);
+    @include border(5%);
+  }
+
+  .menu-item {
+    @include border();
+    @include color($purple);
+
+    &:hover {
+      @include background($border);
+    }
+
+    &.selected {
+      @include background($border);
+      @include color($fg);
+
+      &:before {
+        @include background($purple);
+      }
+    }
+  }
+}
 
 /* Generics */
 .application-main {
@@ -470,8 +501,8 @@ body {
     }
 
     .Counter {
-      color: $purple;
-      background: $bg;
+      @include color($purple);
+      @include background($border);
     }
   }
 
@@ -489,6 +520,11 @@ body {
     border-color: $border;
     border-top-color: $active;
     color: $text;
+
+    .Counter {
+      @include color($border);
+      @include background($purple);
+    }
   }
 
   .topic-tag-link {
@@ -665,4 +701,5 @@ body {
 /* Components */
 @import "./pages/dashboard.scss";
 @import "./pages/profile.scss";
-@import "./pages/discussions.scss";
+@import "./pages/discussion.scss";
+@import "./pages/projects.scss";

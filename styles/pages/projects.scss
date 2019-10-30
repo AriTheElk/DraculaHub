@@ -1,0 +1,24 @@
+@import "../colors.scss";
+@import "../mixins/all.scss";
+
+.repository-content {
+  .border {
+    @include border();
+  }
+
+  .btn-link {
+    @include color($fg);
+  }
+
+  .link-gray-dark {
+    @include color($purple);
+  }
+
+  .progress-bar {
+    @include background($border);
+  }
+
+  #projects-results {
+    @include color($bg, 40%);
+  }
+}

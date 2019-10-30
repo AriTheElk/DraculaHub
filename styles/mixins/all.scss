@@ -28,7 +28,7 @@
   }
 
   .bg-gray {
-    background: $background !important;
+    @include background($border);
   }
   .bg-gray-light {
     background: lighten($background, 4%) !important;
@@ -40,8 +40,22 @@
     color: $foreground !important;
   }
 
+  .bg-purple {
+    @include background($purple);
+    @include color($bg);
+  }
+
+  .bg-blue-light {
+    @include background($cyan);
+    @include color($bg);
+
+    .text-gray-dark {
+      @include color($bg);
+    }
+  }
+
   .border-blue {
-    border-color: $purple !important;
+    border-color: $cyan !important;
   }
 
   .border-bottom,

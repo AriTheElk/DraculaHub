@@ -20,6 +20,8 @@
       }
 
       a.link-gray-dark {
+        // Render as a block to drop labels onto their own line
+        display: block;
         @include color($purple);
       }
 
