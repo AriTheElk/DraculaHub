@@ -12,7 +12,7 @@
     "package": "crx pack ext -o DraculaHub.crx"
   },
   "dependencies": {
-    "crx": "^3.2.1",
+    "crx": "^5.0.1",
     "node-sass": "^4.9.3"
   }
 }
