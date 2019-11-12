@@ -32,4 +32,69 @@ body.DraculaHub.page-profile {
       color: $fg;
     }
   }
+
+  .avatar-before-user-status,
+  .subnav-item {
+    @include border();
+  }
+
+  .profile-timeline.discussion-timeline .profile-timeline-month-heading:after {
+    @include background($border);
+  }
+
+  .profile-rollup-wrapper + .profile-rollup-wrapper,
+  .profile-rollup-summarized + .profile-rollup-summarized {
+    @include border();
+  }
+
+  .discussion-item-icon {
+    border-color: $purple !important;
+    @include background();
+    @include color($purple);
+  }
+
+  .profile-timeline-month-heading {
+    @include background();
+  }
+
+  // ACTIVITY GRAPHS
+  .js-yearly-contributions {
+    .js-calendar-graph {
+      .js-calendar-graph-svg {
+        filter: hue-rotate(100deg) !important;
+
+        text {
+          fill: $cyan;
+        }
+
+        rect {
+          opacity: 1;
+        }
+        rect[data-count="0"] {
+          fill: rgba(60, 60, 60, 1);
+        }
+      }
+    }
+
+    .legend {
+      filter: hue-rotate(100deg) !important;
+      li:first-child {
+        background-color: rgba(60, 60, 60, 1) !important;
+      }
+    }
+  }
+  .js-activity-overview-graph-container {
+    // Contribution type graph
+    svg g {
+      .js-highlight-blob,
+      .activity-overview-axis {
+        fill: $green !important;
+        stroke: $green !important;
+      }
+      .activity-overview-point {
+        fill: $bg !important;
+        stroke: $fg !important;
+      }
+    }
+  }
 }

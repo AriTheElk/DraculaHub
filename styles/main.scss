@@ -623,33 +623,6 @@ body.DraculaHub {
       }
     }
 
-    // Profile Graph
-    .js-yearly-contributions {
-      .js-calendar-graph {
-        filter: hue-rotate(100deg);
-
-        svg {
-          text {
-            fill: $cyan;
-          }
-
-          rect {
-            opacity: 0.8;
-          }
-          rect[data-count="0"] {
-            fill: rgba(60, 60, 60, 1);
-          }
-        }
-      }
-
-      .legend {
-        filter: hue-rotate(100deg) !important;
-        li:first-child {
-          background-color: rgba(60, 60, 60, 1) !important;
-        }
-      }
-    }
-
     #year-list-container {
       .js-year-link {
         color: $purple;
