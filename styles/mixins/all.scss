@@ -67,4 +67,13 @@
     border-color: $green !important;
     color: $green !important;
   }
+
+  .border,
+  .border-lg-left {
+    @include border();
+  }
+
+  .link-gray-dark {
+    @include color($border);
+  }
 }
