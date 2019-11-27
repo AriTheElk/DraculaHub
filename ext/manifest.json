@@ -23,7 +23,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://github.com/*"],
+      "matches": ["https://github.com/*", "https://gist.github.com/*"],
       "css": ["src/inject/inject.css"],
       "js": ["src/inject/toggle.js"]
     }
